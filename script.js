@@ -2,6 +2,7 @@ let colorSelected;
 
 //Adds a row
 function addR() {
+    // console.log("hi")
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
 
