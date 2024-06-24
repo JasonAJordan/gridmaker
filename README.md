@@ -1,2 +1,2 @@
-[Site goes here! 
+[Site here! 
 ](https://jasonajordan.github.io/gridmaker/)
