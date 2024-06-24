@@ -5,20 +5,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="addR()">Add Row</button>
-    <button onclick="addC()">Add Col</button>
+
+    <span>
+        <button onclick="addR()">Add Row</button>
+        <input type="text" id="addRow" name="" value="1" maxlength="4" size="2">
+    </span>
+    <span>
+        <button onclick="addC()">Add Col</button>
+        <input type="text" id="addCol" name="" value="1" maxlength="4" size="2">
+    </span>
     <button onclick="removeR()">Remove Row</button>
     <button onclick="removeC()">Remove Col</button>
     <button onclick="fillU()">Fill All Uncolored</button>
     <button onclick="fill()">Fill All</button>
     <button onclick="clearAll()">Clear</button>
-    <select onchange="selected()" id="selectedID">
+    <!-- <select onchange="selected()" id="selectedID"> -->
+    <select onchange="selected2()" id="selectedoldID">
         <option value="SELECT">SELECT</option>
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
+        <option value="#FF0000">Red</option>
+        <option value="#0000FF">Blue</option>
+        <option value="#00FF00">Green</option>
+        <option value="#FFFF00">Yellow</option> 
     </select>
+    
+
+
+    <input type="color" onchange="selected()" id="selectedID" name="favcolor" value="#FFFFFF" ><br><br>
+
+
     <table id="grid">
     </table>
     <script src="script.js"></script>
