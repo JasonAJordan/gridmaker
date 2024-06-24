@@ -23,50 +23,65 @@ function addR() {
     // console.log("hi")
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
-    
+    let amount = document.getElementById("addRow").value;
+    if (amount == 0) return;
     if (rows.length === 0) {
-        let row = document.createElement("tr");
-        let col = document.createElement("td");
-        col.onclick = function(){
-            //this.style.backgroundColor = document.getElementById("selectedID").value;
-            this.style.backgroundColor = colorSelected;
-        };
-        row.appendChild(col);
-        grid.appendChild(row);
-    } else {
-        let numCols = rows[0].childElementCount;
-        let row = document.createElement("tr");
-        for (let i = 0; i < numCols; i++){
+        for (let i = 0 ; i < amount; i++){
+            let row = document.createElement("tr");
             let col = document.createElement("td");
             col.onclick = function(){
-              this.style.backgroundColor = colorSelected;
+                //this.style.backgroundColor = document.getElementById("selectedID").value;
+                this.style.backgroundColor = colorSelected;
             };
+            console.log(amount);
             row.appendChild(col);
+            // for (let i = 0 ; i < amount; i++){
+                //console.log("asdfasdf");
+                grid.appendChild(row);
         }
-        grid.appendChild(row);
+
+    } else {
+        for (let i = 0 ; i < amount; i++){
+            let numCols = rows[0].childElementCount;
+            let row = document.createElement("tr");
+            for (let i = 0; i < numCols; i++){
+                let col = document.createElement("td");
+                col.onclick = function(){
+                this.style.backgroundColor = colorSelected;
+                };
+                row.appendChild(col);
+            }
+            grid.appendChild(row);
+        }
     }
 }
 //Adds a column
 function addC() {
     let grid = document.getElementById("grid");
     let rows = document.getElementsByTagName("tr");
-    
+    let amount = document.getElementById("addCol").value;
     if (rows.length === 0) {
         let row = document.createElement("tr");
-        let col = document.createElement("td");
-        col.onclick = function(){
-            this.style.backgroundColor = colorSelected;
-        };
-        row.appendChild(col);
-        grid.appendChild(row);
-    } else {
-        for (let i = 0; i < rows.length; i++){
+        for (let i = 0 ; i < amount; i++){
             let col = document.createElement("td");
             col.onclick = function(){
-              this.style.backgroundColor = colorSelected;
+                this.style.backgroundColor = colorSelected;
             };
-            rows[i].appendChild(col);
-        }  
+            row.appendChild(col);
+        }
+        grid.appendChild(row);
+            
+
+    } else {
+        for (let i = 0 ; i < amount; i++){
+            for (let i = 0; i < rows.length; i++){
+                let col = document.createElement("td");
+                col.onclick = function(){
+                this.style.backgroundColor = colorSelected;
+                };
+                rows[i].appendChild(col);
+            }  
+        }
     }
 
 }
@@ -108,14 +123,47 @@ function removeC() {
 
 
 function fill(){
+    // let rows = document.getElementsByTagName("tr");
+    // // console.log("asdfasfd");
+    // for (let i = 0; i < rows.length; i++){
 
+    //     let col = rows[i];
+    //     // console.log(col);
+
+    //     let numCols = rows[i].childElementCount;
+    //     for (let j = 0; j< numCols;  j++){
+    //         // console.log("hi2");
+    //         let cell = col.children[j]
+    //         // console.log(cell);
+    //         cell.style.backgroundColor = colorSelected;
+    //     }
+
+    // }  
+
+    // The solution in class was much better than the way I thought about doing it.
+    let cells = document.getElementsByTagName("td");
+
+    for (let i = 0; i < cells.length; i++){
+        cells[i].style.backgroundColor = colorSelected;
+    }
 }
 
 function clearAll(){
+    let cells = document.getElementsByTagName("td");
 
+    for (let i = 0; i < cells.length; i++){
+        cells[i].style.backgroundColor = "";
+    }
 }
 
 function fillU(){
+    let cells = document.getElementsByTagName("td");
 
+    for (let i = 0; i < cells.length; i++){
+        if (cells[i].style.backgroundColor == "" || cells[i].style.backgroundColor  == "#FFFFFF"){
+            cells[i].style.backgroundColor = colorSelected;
+        }
+        
+    }
 }
 
